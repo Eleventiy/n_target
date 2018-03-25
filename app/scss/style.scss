@@ -1,0 +1,233 @@
+// Mixins
+@import "mixins/font-face";
+
+// Vars
+@import "vars/fonts";
+@import "vars/colors";
+
+// ==================================================
+//    ### Font face ###
+// ==================================================
+@include font-face("Exo-Regular", "../fonts/exo-regular-webfont", 400, normal);
+@include font-face("Exo-Medium", "../fonts/exo-medium-webfont", 500, normal);
+@include font-face("Exo-SemiBold", "../fonts/exo-semibold-webfont", 600, normal);
+
+
+
+// ==================================================
+//    ### Common styles ###
+// ==================================================
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	font-family: $Exo-Medium;
+	font-size: 24px;
+	line-height: 32px;
+	background-color: $mainBg;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+p:last-child {
+	margin: 0;
+}
+
+// Buttons
+.btn {
+	display: inline-block;
+	padding: 13px 29.5px;
+	color: rgba($black, .5);
+	font-family: $Exo-Semibold;
+	font-size: 28px;
+	line-height: 38px;
+	letter-spacing: 0.73px;
+	text-transform: uppercase;
+	border: 3px solid $black;
+	border-radius: 5px;
+	background-color: $orange;
+	transition: all .25s linear;
+
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+
+}
+
+// ==================================================
+//    ### Header ###
+// ==================================================
+.main-header {
+	min-height: 80px;
+	background-color: $black;
+	border-bottom: 1px solid rgba($white, .5);
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 1820px;
+		margin: 0 auto;
+	}
+
+	.header-logo {
+		max-width: 209px;
+
+		img {
+			vertical-align: middle;
+		}
+
+	}
+
+	.header-nav {
+
+		&__list {
+			display: flex;
+			align-items: center;
+		}
+
+		&__link {
+			display: block;
+			padding: 24px 37px;
+			color: $grayLight;
+			letter-spacing: 0.63px;
+			transition: all .25s linear;
+
+			&:hover,
+			&:focus {
+				color: $orange;
+			}
+
+		}
+
+	}
+
+}
+
+// ==================================================
+//    ### 1. Front page ###
+// ==================================================
+.main-front {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: calc(100vh - 81px);
+	background: $mainBg url("../img/backgrounds/front-bg.png") no-repeat center;
+	background-size: cover;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(#040300, .85);
+	}
+
+}
+
+.sect-front {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.front-content {
+	max-width: 45%;
+
+	&__title {
+		margin: 0;
+		color: $white;
+		font-weight: 500;
+		font-size: 44px;
+		line-height: 58px;
+		letter-spacing: 1.15px;
+	}
+
+	&__descr {
+		max-width: 75%;
+		margin-bottom: 54px;
+		line-height: 37px;
+		letter-spacing: 0.94px;
+
+		p {
+			margin: 0;
+			color: $orange;
+			font-family: $Exo-Semibold;
+			font-size: 26px;
+		}
+
+		small {
+			color: $gray;
+			font-family: $Exo-Regular;
+			font-size: 20px;
+		}
+
+	}
+
+	&__download {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 430px;
+		margin-bottom: 41px;
+
+		a {
+			display: block;
+			max-width: 205px;
+			transition: all .25s linear;
+			opacity: .6;
+
+			&:hover,
+			&:focus {
+				opacity: 1;
+			}
+
+		}
+
+	}
+
+}
+
+.front-image {
+	max-width: 360px;
+}
+
+
+// ==================================================
+//    ### Responsive styles ###
+// ==================================================
+@import "responsive";

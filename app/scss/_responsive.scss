@@ -1,0 +1,50 @@
+@media screen and (max-width: 1366px) {
+
+	// ==================================================
+	//    ### Header ###
+	// ==================================================
+	.main-header {
+		min-height: 70px;
+
+		&__wrapper {
+			max-width: 1276px;
+		}
+
+		.header-logo {
+			max-width: 164px;
+		}
+
+		.header-nav {
+
+			&__link {
+				padding: 21px 35px 20px;
+				font-size: 22px;
+				line-height: 29px;
+				letter-spacing: 0.57px;
+			}
+
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 1. Front page ###
+	// ==================================================
+	.front-content {
+
+		&__descr {
+			margin-bottom: 34px;
+		}
+
+		&__download {
+			margin-bottom: 54px;
+		}
+
+	}
+
+	.front-image {
+		max-width: 250px;
+	}
+
+}
