@@ -1,4 +1,70 @@
-@media screen and (max-width: 1366px) {
+@import "vars/breakpoints";
+
+// ==================================================
+//    ### Mobile ###
+// ==================================================
+
+
+// ==================================================
+//    ### Tablet ###
+// ==================================================
+@media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+
+	// ==================================================
+	//    ### Header ###
+	// ==================================================
+	.main-header {
+		display: flex;
+		min-height: 90px;
+
+		.header-logo {
+			max-width: 224px;
+		}
+
+		.header-nav {
+			position: fixed;
+			top: 0;
+			right: -100vw;
+			width: 100%;
+			max-width: 50%;
+			height: 100vh;
+			background-color: #e7e7e7;
+			transition: all 0.25s linear;
+
+			&.is-open {
+				right: 0;
+				z-index: 100;
+
+				&::before {
+					content: '';
+					position: fixed;
+					display: block;
+					width: 100vw;
+					height: 100vh;
+					z-index: 99;
+					background-color: rgba($black, .7);
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// ==================================================
+//    ### Laptop ###
+// ==================================================
+@media screen and (min-width: $min-laptop) and (max-width: $max-laptop) {
+
+	// ==================================================
+	//    ### Common styles ###
+	// ==================================================
+	body {
+		margin-top: 70px;
+	}
 
 	// ==================================================
 	//    ### Header ###
@@ -7,7 +73,7 @@
 		min-height: 70px;
 
 		&__wrapper {
-			max-width: 1276px;
+			max-width: 1305px;
 		}
 
 		.header-logo {
@@ -31,9 +97,19 @@
 	// ==================================================
 	//    ### 1. Front page ###
 	// ==================================================
+	.main-front {
+		padding: 103px 0 90px;
+	}
+
+	.sect-front {
+		max-width: 1095px;
+	}
+
 	.front-content {
+		max-width: 50%;
 
 		&__descr {
+			max-width: 90%;
 			margin-bottom: 34px;
 		}
 
@@ -45,6 +121,21 @@
 
 	.front-image {
 		max-width: 250px;
+	}
+
+}
+
+@media screen and (min-width: $max-tablet) {
+
+	// ==================================================
+	//    ### Header ###
+	// ==================================================
+	.main-header {
+
+		.header-sandwich {
+			display: none;
+		}
+
 	}
 
 }

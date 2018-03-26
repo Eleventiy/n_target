@@ -14,9 +14,7 @@
 
 
 
-// ==================================================
-//    ### Common styles ###
-// ==================================================
+
 *,
 *::before,
 *::after {
@@ -28,7 +26,9 @@ html {
 }
 
 body {
+	position: relative;
 	min-height: 100%;
+	margin-top: 80px;
 	font-family: $Exo-Medium;
 	font-size: 24px;
 	line-height: 32px;
@@ -81,16 +81,22 @@ p:last-child {
 //    ### Header ###
 // ==================================================
 .main-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
 	min-height: 80px;
 	background-color: $black;
-	border-bottom: 1px solid rgba($white, .5);
+	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		max-width: 1820px;
+		max-width: 1850px;
+		padding: 0 15px;
 		margin: 0 auto;
 	}
 
@@ -117,9 +123,40 @@ p:last-child {
 			letter-spacing: 0.63px;
 			transition: all .25s linear;
 
+			&:last-child {
+				padding-right: 0;
+			}
+
 			&:hover,
 			&:focus {
 				color: $orange;
+			}
+
+		}
+
+	}
+
+	.header-sandwich {
+		position: relative;
+		z-index: 30;
+		display: block;
+		width: 96px;
+		height: 100%;
+		margin-right: -15px;
+		background-color: $orange;
+		border: 0;
+		cursor: pointer;
+
+		span {
+			display: block;
+			background-color: $black;
+			width: 100%;
+			max-width: 80%;
+			height: 5px;
+			margin: 0 auto 10px;
+
+			&:last-child {
+				margin-bottom: 0;
 			}
 
 		}
@@ -135,7 +172,7 @@ p:last-child {
 	position: relative;
 	display: flex;
 	align-items: center;
-	min-height: calc(100vh - 81px);
+	padding: 118px 0 160px;
 	background: $mainBg url("../img/backgrounds/front-bg.png") no-repeat center;
 	background-size: cover;
 
@@ -155,8 +192,9 @@ p:last-child {
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1240px;
 	margin: 0 auto;
+	padding: 0 15px;
 
 	&__wrapper {
 		display: flex;
