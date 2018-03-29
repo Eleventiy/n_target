@@ -10,15 +10,14 @@
 // ==================================================
 @include font-face("Exo-Regular", "../fonts/exo-regular-webfont", 400, normal);
 @include font-face("Exo-Medium", "../fonts/exo-medium-webfont", 500, normal);
-@include font-face("Exo-SemiBold", "../fonts/exo-semibold-webfont", 600, normal);
-
-
+@include font-face("Exo-DemiBold", "../fonts/exo-demibold-webfont", 600, normal);
 
 
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
+	transition: all .25s linear;
 }
 
 html {
@@ -27,12 +26,17 @@ html {
 
 body {
 	position: relative;
-	min-height: 100%;
+	//min-height: 100%;
 	margin-top: 80px;
 	font-family: $Exo-Medium;
 	font-size: 24px;
 	line-height: 32px;
 	background-color: $mainBg;
+
+	&.overlayed {
+		overflow: hidden;
+	}
+
 }
 
 img {
@@ -60,7 +64,7 @@ p:last-child {
 	display: inline-block;
 	padding: 13px 29.5px;
 	color: rgba($black, .5);
-	font-family: $Exo-Semibold;
+	font-family: $Exo-Demibold;
 	font-size: 28px;
 	line-height: 38px;
 	letter-spacing: 0.73px;
@@ -69,6 +73,7 @@ p:last-child {
 	border-radius: 5px;
 	background-color: $orange;
 	transition: all .25s linear;
+	cursor: pointer;
 
 	&:hover,
 	&:focus {
@@ -116,16 +121,32 @@ p:last-child {
 			align-items: center;
 		}
 
+		&__item {
+
+			&:last-child {
+
+				.header-nav__link {
+					padding-right: 0;
+				}
+
+			}
+
+			&.active {
+
+				.header-nav__link {
+					color: $orange;
+				}
+
+			}
+
+		}
+
 		&__link {
 			display: block;
 			padding: 24px 37px;
 			color: $grayLight;
 			letter-spacing: 0.63px;
 			transition: all .25s linear;
-
-			&:last-child {
-				padding-right: 0;
-			}
 
 			&:hover,
 			&:focus {
@@ -136,9 +157,9 @@ p:last-child {
 
 	}
 
-	.header-sandwich {
+	.mobile-sandwich {
 		position: relative;
-		z-index: 30;
+		z-index: 300;
 		display: block;
 		width: 96px;
 		height: 100%;
@@ -163,6 +184,47 @@ p:last-child {
 
 	}
 
+	.mobile-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		display: none;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#4A4A4A, .5);
+		transition: opacity 0.5s ease-in-out;
+		opacity: 0;
+
+		&.is-open {
+			display: block;
+			opacity: 1;
+		}
+
+	}
+
+	.mobile-line {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		max-width: calc(100% - 96px);
+		height: 90px;
+		padding-left: 35px;
+		background-color: $black;
+
+		&__img {
+			display: inline-block;
+			margin: 0;
+			max-width: 150px;
+
+			img {
+				vertical-align: middle;
+			}
+
+		}
+
+	}
+
 }
 
 // ==================================================
@@ -170,8 +232,7 @@ p:last-child {
 // ==================================================
 .main-front {
 	position: relative;
-	display: flex;
-	align-items: center;
+	min-height: 100vh;
 	padding: 118px 0 160px;
 	background: $mainBg url("../img/backgrounds/front-bg.png") no-repeat center;
 	background-size: cover;
@@ -224,7 +285,7 @@ p:last-child {
 		p {
 			margin: 0;
 			color: $orange;
-			font-family: $Exo-Semibold;
+			font-family: $Exo-Demibold;
 			font-size: 26px;
 		}
 
@@ -238,9 +299,7 @@ p:last-child {
 
 	&__download {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		max-width: 430px;
 		margin-bottom: 41px;
 
 		a {
@@ -248,6 +307,10 @@ p:last-child {
 			max-width: 205px;
 			transition: all .25s linear;
 			opacity: .6;
+
+			&:first-child {
+				margin-right: 20px;
+			}
 
 			&:hover,
 			&:focus {
@@ -262,6 +325,187 @@ p:last-child {
 
 .front-image {
 	max-width: 360px;
+}
+
+
+// ==================================================
+//    ### 2. Preview page ###
+// ==================================================
+.sect-preview {}
+
+.preview-slider {
+	cursor: grab;
+
+	img {
+		outline: 0;
+	}
+
+}
+
+.slick-slider .slick-track {
+	transition: none;
+}
+
+
+// ==================================================
+//    ### 3. "Get your plan" page ###
+// ==================================================
+.main-plan {
+	padding: 100px 0 143px;
+}
+
+.sect-plan {
+	width: 100%;
+	max-width: 1510px;
+	margin: 0 auto;
+	padding: 0 15px;
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+}
+
+.plan-content {
+	max-width: 56%;
+
+	&__descr {
+		margin-bottom: 14px;
+		color: $white;
+		letter-spacing: 0.94px;
+
+		h2 {
+			margin: 0;
+			font-size: 34px;
+			font-weight: 500;
+			line-height: 1.43;
+		}
+
+		span,
+		sup {
+			color: $orange;
+		}
+
+		small {
+			color: $gray;
+			font-size: 20px;
+			line-height: 1.43;
+		}
+
+	}
+
+}
+
+.plan-image {
+	width: 100%;
+	max-width: 360px;
+}
+
+
+// ==================================================
+//    ### Forms ###
+// ==================================================
+.form-group {
+	position: relative;
+	margin-bottom: 60px;
+
+	&:first-child {
+		margin-bottom: 0;
+	}
+
+	p {
+		margin: 0 0 28px;
+		color: $orange;
+		font-family: $Exo-Demibold;
+		font-size: 28px;
+		line-height: 38px;
+		letter-spacing: 0.73px;
+	}
+
+	input[type="text"],
+	input[type="email"] {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 528px;
+		padding: 15px 20px;
+		color: darken($gray, 33.4%);
+		font-family: $Exo-Regular;
+		font-size: 30px;
+		line-height: 1.43;
+		letter-spacing: 0.37px;
+		border: 2px solid darken($gray, 29%);
+		border-radius: 5px;
+		background-color: $white;
+		box-shadow: 0 3px 8px rgba($black, 0.107762);
+		outline: 0;
+	}
+
+	label {
+		color: lighten($gray, 34%);
+		font-family: $Exo-Regular;
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: 0.73px;
+
+		&.error {
+			position: absolute;
+			left: 0;
+			bottom: -30px;
+			color: #fc1717;
+			font-size: 24px;
+			line-height: 30px;
+			letter-spacing: 0;
+		}
+
+	}
+
+	&--checkbox {
+		margin-top: 30px;
+
+		label {
+			display: block;
+			width: 100%;
+			max-width: 628px;
+		}
+
+	}
+
+	&--radio {
+
+		label {
+			display: inline-block;
+			margin-right: 18px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+		}
+
+		img {
+			width: 243px;
+		}
+
+		label > input {
+			visibility: hidden;
+			position: absolute;
+
+			+ img {
+				cursor: pointer;
+				opacity: .6;
+				transition: all .25s linear;
+			}
+
+			&:checked + img {
+				opacity: 1;
+			}
+
+		}
+
+	}
+
 }
 
 

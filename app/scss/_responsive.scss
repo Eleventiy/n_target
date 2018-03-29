@@ -3,12 +3,7 @@
 // ==================================================
 //    ### Mobile ###
 // ==================================================
-
-
-// ==================================================
-//    ### Tablet ###
-// ==================================================
-@media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+@media screen and (min-width: $min-mobile) and (max-width: $max-tablet) {
 
 	// ==================================================
 	//    ### Header ###
@@ -25,26 +20,412 @@
 			position: fixed;
 			top: 0;
 			right: -100vw;
+			z-index: 200;
 			width: 100%;
 			max-width: 50%;
 			height: 100vh;
+			overflow: auto;
 			background-color: #e7e7e7;
-			transition: all 0.25s linear;
+			transition: right 0.5s ease-in-out;
 
 			&.is-open {
 				right: 0;
-				z-index: 100;
+			}
 
-				&::before {
-					content: '';
-					position: fixed;
-					display: block;
-					width: 100vw;
-					height: 100vh;
-					z-index: 99;
-					background-color: rgba($black, .7);
+			&__list {
+				flex-direction: column;
+			}
+
+			&__item {
+				display: block;
+				width: 100%;
+				border-bottom: 1px solid $grayLight;
+
+				&.active {
+
+					.header-nav__link {
+						border-left: 15px solid $orange;
+					}
+
 				}
 
+			}
+
+			&__link {
+
+			}
+
+		}
+
+	}
+
+}
+
+@media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
+
+	// ==================================================
+	//    ### Common styles ###
+	// ==================================================
+	body {
+		margin-top: 70px;
+	}
+
+	.btn {
+		padding: 13px 20px;
+		font-size: 18px;
+		line-height: 1.43;
+	}
+
+	// ==================================================
+	//    ### Header ###
+	// ==================================================
+	.main-header {
+		min-height: 70px;
+
+		.header-logo {
+			max-width: 165px;
+		}
+
+		.header-nav {
+
+			&.is-open {
+				max-width: 90%;
+			}
+
+			&__item.active .header-nav__link {
+				border-left-width: 10px;
+			}
+
+			&__link {
+				padding: 20px 25px;
+				font-size: 20px;
+				text-transform: uppercase;
+			}
+
+		}
+
+		.mobile-sandwich {
+			width: 75px;
+		}
+
+		.mobile-line {
+			max-width: calc(100% - 75px);
+			height: 70px;
+			padding-left: 20px;
+
+			&__img {
+				max-width: 110px;
+			}
+
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 1. Front page ###
+	// ==================================================
+	.main-front {
+		padding: 50px 0;
+	}
+
+	.sect-front {
+
+		&__wrapper {
+			flex-direction: column;
+		}
+
+	}
+
+	.front-content {
+		max-width: 100%;
+		margin-bottom: 50px;
+		text-align: center;
+
+		&__title {
+			margin-bottom: 15px;
+			font-size: 24px;
+			line-height: 1.43;
+		}
+
+		&__descr {
+			max-width: 100%;
+			margin-bottom: 30px;
+
+			p {
+				font-size: 16px;
+				line-height: 1.43;
+			}
+
+			small {
+				font-size: 12px;
+			}
+
+		}
+
+		&__download {
+			flex-direction: column;
+			margin: 0 auto 30px;
+
+			a {
+				max-width: 150px;
+
+				&:first-child {
+					margin-right: 0;
+				}
+
+			}
+
+		}
+
+	}
+
+	.front-image {
+		max-width: 260px;
+	}
+
+
+	// ==================================================
+	//    ### 3. "Get your plan" page ###
+	// ==================================================
+	.main-plan {
+		padding: 40px 0 97px;
+	}
+
+	.sect-plan {
+		max-width: 90%;
+
+		&__wrapper {
+			display: block;
+		}
+
+	}
+
+	.plan-content {
+		max-width: 100%;
+		margin-bottom: 100px;
+
+		&__descr {
+			margin-bottom: 50px;
+			text-align: center;
+
+			h2 {
+				font-size: 28px;
+			}
+
+			small {
+				font-size: 18px;
+			}
+
+		}
+
+	}
+
+	.plan-image {
+		margin: 0 auto;
+	}
+
+
+	// ==================================================
+	//    ### Forms ###
+	// ==================================================
+	.form-group {
+		margin-bottom: 40px;
+
+		p {
+			margin: 0 0 20px;
+			font-size: 24px;
+			line-height: 1.43;
+			letter-spacing: .68px;
+		}
+
+		input[type="text"],
+		input[type="email"] {
+			padding: 12px 20px;
+			font-size: 22px;
+		}
+
+		label {
+			font-size: 18px;
+			line-height: 1.43;
+
+			&.error {
+				font-size: 18px;
+				line-height: 1.43;
+			}
+
+		}
+
+
+		&--radio {
+
+			label {
+				display: block;
+				margin-right: 0;
+				margin-bottom: 15px;
+			}
+
+			img {
+				width: 215px;
+			}
+
+		}
+
+	}
+
+}
+
+
+
+// ==================================================
+//    ### Tablet ###
+// ==================================================
+@media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
+
+	// ==================================================
+	//    ### Common styles ###
+	// ==================================================
+	body {
+		margin-top: 90px;
+	}
+
+	.btn {
+		padding: 13px 20px;
+		font-size: 18px;
+		line-height: 1.43;
+	}
+
+
+	// ==================================================
+	//    ### Header ###
+	// ==================================================
+	.main-header {
+
+		.header-nav__link {
+			font-size: 20px;
+			text-transform: uppercase;
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 1. Front page ###
+	// ==================================================
+	.main-front {
+		padding: 80px 0;
+	}
+
+	.sect-front {
+		max-width: 85%;
+	}
+
+	.front-content {
+		max-width: 50%;
+
+		&__title {
+			margin-bottom: 15px;
+			font-size: 30px;
+			line-height: 1.43;
+		}
+
+		&__descr {
+			max-width: 90%;
+			margin-bottom: 30px;
+			line-height: 1.43;
+
+			p {
+				font-size: 18px;
+			}
+
+			small {
+				font-size: 15px;
+			}
+
+		}
+
+		&__download a {
+			max-width: 150px;
+
+			&:first-child {
+				margin-right: 15px;
+			}
+
+		}
+
+	}
+
+	.front-image {
+		max-width: 250px;
+	}
+
+
+	// ==================================================
+	//    ### 3. "Get your plan" page ###
+	// ==================================================
+	.main-plan {
+		padding: 50px 0;
+	}
+
+	.sect-plan {
+		max-width: 90%;
+	}
+
+	.plan-content {
+
+		&__descr {
+			margin-bottom: 30px;
+
+			h2 {
+				font-size: 30px;
+			}
+
+		}
+
+	}
+
+	.plan-image {
+		max-width: 250px;
+	}
+
+
+	// ==================================================
+	//    ### Forms ###
+	// ==================================================
+	.form-group {
+		margin-bottom: 45px;
+
+		p {
+			margin: 0 0 15px;
+			font-size: 24px;
+		}
+
+		input[type="text"],
+		input[type="email"] {
+			padding: 12px 20px;
+			font-size: 24px;
+		}
+
+		label {
+			font-size: 18px;
+			line-height: 1.43;
+
+			&.error {
+				bottom: -25px;
+				font-size: 18px;
+				line-height: 1.43;
+			}
+
+		}
+
+		&--checkbox {
+			margin-top: 25px;
+		}
+
+		&--radio {
+
+			label {
+				display: block;
 			}
 
 		}
@@ -98,6 +479,7 @@
 	//    ### 1. Front page ###
 	// ==================================================
 	.main-front {
+		min-height: calc(100vh - 70px);
 		padding: 103px 0 90px;
 	}
 
@@ -123,16 +505,94 @@
 		max-width: 250px;
 	}
 
+
+	// ==================================================
+	//    ### 3. "Get your plan" page ###
+	// ==================================================
+	.main-plan {
+		padding: 58px 0 39px;
+	}
+
+	.sect-plan {
+		max-width: 1095px;
+	}
+
+	.plan-content {
+		max-width: 65%;
+
+		&__descr {
+			margin-bottom: 30px;
+
+			h2 {
+				font-size: 30px;
+			}
+
+		}
+
+	}
+
+	.plan-image {
+		max-width: 250px;
+	}
+
+
+	// ==================================================
+	//    ### Forms ###
+	// ==================================================
+	.form-group {
+		margin-bottom: 40px;
+
+		p {
+			margin: 0 0 19px;
+			font-size: 24px;
+			line-height: 1.43;
+			letter-spacing: 0.63px;
+		}
+
+		input[type="text"],
+		input[type="email"] {
+			max-width: 450px;
+			padding: 12px 20px;
+			font-size: 26px;
+			letter-spacing: 0.32px;
+		}
+
+		label {
+
+			&.error {
+				bottom: -26px;
+				font-size: 18px;
+			}
+
+		}
+
+		&--checkbox {
+			margin-top: 20px;
+			margin-bottom: 34px;
+		}
+
+		&--radio {
+
+			img {
+				max-width: 232px;
+			}
+
+		}
+
+	}
+
 }
 
-@media screen and (min-width: $max-tablet) {
+@media screen and (min-width: $min-laptop) {
 
 	// ==================================================
 	//    ### Header ###
 	// ==================================================
 	.main-header {
 
-		.header-sandwich {
+		.mobile-sandwich,
+		.mobile-overlay,
+		.mobile-line {
 			display: none;
 		}
 

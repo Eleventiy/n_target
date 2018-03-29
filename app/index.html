@@ -47,19 +47,32 @@
 			<div class="main-header__wrapper">
 
 				<div class="header-logo">
-					<a href="/"><img src="img/logo.svg" alt="NTarget logo"></a>
+					<a href="index.html"><img src="img/logo.svg" alt="NTarget logo"></a>
 				</div>
 
 				<nav class="header-nav" id="mobileMenu">
+
+					<!-- Mobile line -->
+					<div class="mobile-line">
+						<figure class="mobile-line__img">
+							<img src="img/mobile-logo.svg" alt="NTarget logo">
+						</figure>
+					</div>
+					<!--/. Mobile line -->
+
 					<ul class="header-nav__list">
-						<li class="header-nav__item"><a href="/" class="header-nav__link">Home</a></li>
+						<li class="header-nav__item active"><a href="index.html" class="header-nav__link">Home</a></li>
 						<li class="header-nav__item"><a href="preview.html" class="header-nav__link">Preview</a></li>
 						<li class="header-nav__item"><a href="plan.html" class="header-nav__link">Get Your Plan</a></li>
 						<li class="header-nav__item"><a href="contacts.html" class="header-nav__link">Contact & More</a></li>
 					</ul>
 				</nav>
 
-				<button class="header-sandwich" id="toggleMenu">
+				<!-- Mobile overlay -->
+				<div class="mobile-overlay" id="mobileOverlay"></div>
+				<!--/. Mobile overlay -->
+
+				<button class="mobile-sandwich" id="toggleMenu">
 					<span></span>
 					<span></span>
 					<span></span>

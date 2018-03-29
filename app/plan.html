@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+		<meta name="description" content="">
+		<title>NTarget - Front page</title>
+
+		<!-- Web Application Manifest -->
+		<link rel="manifest" href="#">
+
+		<!-- Tile icon -->
+		<link rel="shortcut icon" href="#" sizes="31x31" type="image/png">
+
+		<!-- Add to homescreen for Chrome on Android -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="application-name" content="NTarget">
+		<!--<link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">-->
+
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#0093e5">
+		<meta name="apple-mobile-web-app-title" content="NTarget">
+		<!--<link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">-->
+
+		<!-- Add to homescreen for Windows -->
+		<meta name="msapplication-TileColor" content="#0093e5">
+
+		<!-- Color the status bar on mobile devices -->
+		<meta name="theme-color" content="#0093e5">
+
+		<!-- Normalize.css -->
+		<link rel="stylesheet" href="css/normalize.css">
+
+		<!-- Custom styles -->
+		<link rel="stylesheet" href="css/style.min.css">
+	</head>
+
+	<body>
+
+		<!-- Main header -->
+		<header class="main-header">
+
+			<div class="main-header__wrapper">
+
+				<div class="header-logo">
+					<a href="index.html"><img src="img/logo.svg" alt="NTarget logo"></a>
+				</div>
+
+				<nav class="header-nav" id="mobileMenu">
+
+					<!-- Mobile line -->
+					<div class="mobile-line">
+						<figure class="mobile-line__img">
+							<img src="img/mobile-logo.svg" alt="NTarget logo">
+						</figure>
+					</div>
+					<!--/. Mobile line -->
+
+					<ul class="header-nav__list">
+						<li class="header-nav__item"><a href="index.html" class="header-nav__link">Home</a></li>
+						<li class="header-nav__item"><a href="preview.html" class="header-nav__link">Preview</a></li>
+						<li class="header-nav__item active"><a href="plan.html" class="header-nav__link">Get Your Plan</a></li>
+						<li class="header-nav__item"><a href="contacts.html" class="header-nav__link">Contact & More</a></li>
+					</ul>
+				</nav>
+
+				<!-- Mobile overlay -->
+				<div class="mobile-overlay" id="mobileOverlay"></div>
+				<!--/. Mobile overlay -->
+
+				<button class="mobile-sandwich" id="toggleMenu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+
+			</div>
+
+		</header>
+		<!--/. Main header -->
+
+		<!-- Main content -->
+		<main class="main-plan">
+
+			<section class="sect-plan">
+
+				<div class="sect-plan__wrapper">
+
+					<div class="plan-content">
+
+						<div class="plan-content__descr">
+							<h2>To get your free plan all we ask is that we can email you when the <span>onTARGET App</span>
+								 launches <sup>*</sup>
+							</h2>
+							<small> <sup>*</sup> trust us, we think you’ll like it</small>
+						</div>
+
+						<div class="plan-content__form">
+
+							<form class="form-plan" id="formPlan" action="#" method="post">
+
+								<div class="form-group">
+
+									<p>Where should we send your plan?</p>
+									<input type="email" name="p-user-email" placeholder="Your Email" required>
+
+								</div>
+
+								<div class="form-group  form-group--checkbox">
+
+									<label>
+										<input type="checkbox" name="user-accept" value="accepted contact" required>
+										<span>onTARGET may contact me occassionally once the app is available for download.</span>
+									</label>
+
+								</div>
+
+								<div class="form-group  form-group--radio">
+
+									<p>Which smartphone do you use?</p>
+
+									<label>
+										<input type="radio" name="market" value="app-store">
+										<img src="img/icons/app-store__short.png" alt="App Store icon">
+									</label>
+
+									<label>
+										<input type="radio" name="market" value="google-play">
+										<img src="img/icons/google-play__short.png" alt="Google play icon">
+									</label>
+
+								</div>
+
+								<div class="form-actions">
+									<button class="btn" value="send">SEND ME MY PLAN ALREADY</button>
+								</div>
+
+							</form>
+
+						</div>
+
+					</div>
+
+					<div class="plan-image">
+
+						<img src="img/phones/1.png" alt="NTarget App screen">
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</main>
+		<!-- Main content -->
+
+
+		<!-- JQuery -->
+		<script src="js/jquery.min.js"></script>
+
+		<!-- JQuery Validation -->
+		<script src="js/jquery.validate.min.js"></script>
+
+		<!-- JavaScript -->
+		<script src="js/common.js"></script>
+
+	</body>
+
+</html>
