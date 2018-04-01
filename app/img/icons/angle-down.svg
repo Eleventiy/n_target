@@ -1,0 +1,26 @@
+<svg width="48" height="29" viewBox="0 0 48 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Fill 5</title>
+	<desc>Created using Figma</desc>
+	<g id="Canvas" transform="translate(-2600 -3932)">
+		<g id="Fill 5" filter="url(#filter0_dd)">
+			<use xlink:href="#path0_fill" transform="translate(2604.04 3934.18)"/>
+		</g>
+	</g>
+	<defs>
+		<filter id="filter0_dd" filterUnits="userSpaceOnUse" x="2600" y="3932" width="48" height="29" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+			<feOffset dx="0" dy="2"/>
+			<feGaussianBlur stdDeviation="2"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+			<feOffset dx="0" dy="2"/>
+			<feGaussianBlur stdDeviation="2"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+			<feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
+		</filter>
+		<path id="path0_fill" fill-rule="evenodd" d="M 19.6525 20.7142C 18.9875 20.7142 18.3225 20.463 17.8219 19.9548L 0.443482 2.58202C -0.147827 1.9926 -0.147827 1.0329 0.443482 0.443482C 1.0329 -0.147827 1.9926 -0.147827 2.58202 0.443482L 19.6525 17.5121L 36.7136 0.443482C 37.303 -0.147827 38.2627 -0.147827 38.854 0.443482C 39.4434 1.0329 39.4434 1.9926 38.854 2.58202L 21.4737 19.9548C 20.973 20.463 20.3081 20.7142 19.6525 20.7142Z"/>
+	</defs>
+</svg>

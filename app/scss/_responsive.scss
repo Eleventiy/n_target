@@ -1,12 +1,16 @@
+// ==================================================
+//    ### VARIABLES ###
+// ==================================================
 @import "vars/breakpoints";
 
+
 // ==================================================
-//    ### Mobile ###
+//    ### MOBILES ###
 // ==================================================
 @media screen and (min-width: $min-mobile) and (max-width: $max-tablet) {
 
 	// ==================================================
-	//    ### Header ###
+	//    ### MAIN HEADER ###
 	// ==================================================
 	.main-header {
 		display: flex;
@@ -40,18 +44,15 @@
 				display: block;
 				width: 100%;
 				border-bottom: 1px solid $grayLight;
-
-				&.active {
-
-					.header-nav__link {
-						border-left: 15px solid $orange;
-					}
-
-				}
-
 			}
 
 			&__link {
+
+				&:hover,
+				&:focus,
+				&.mPS2id-highlight {
+					border-left: 15px solid $orange;
+				}
 
 			}
 
@@ -64,20 +65,103 @@
 @media screen and (min-width: $min-mobile) and (max-width: $max-mobile) {
 
 	// ==================================================
-	//    ### Common styles ###
+	//    ### COMMON STYLES ###
 	// ==================================================
 	body {
 		margin-top: 70px;
 	}
 
+	section {
+		padding: 50px 0;
+	}
+
+	// Buttons
 	.btn {
 		padding: 13px 20px;
 		font-size: 18px;
 		line-height: 1.43;
 	}
+	.next-section-btn {
+		bottom: 30px;
+		width: 50px;
+		height: 50px;
+		margin-left: -25px;
+
+		.angle-icon {
+			width: 20px;
+			height: 14px;
+			margin-top: -5px;
+			margin-left: -10px;
+
+			&--up {
+				margin-top: -7px;
+			}
+
+		}
+
+	}
+
+	// Forms
+	.form-group {
+		margin-bottom: 40px;
+
+		&--inline {
+			max-width: 100%;
+		}
+
+		p {
+			margin: 0 0 20px;
+			font-size: 24px;
+			line-height: 1.43;
+			letter-spacing: .68px;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			padding: 12px 20px;
+			font-size: 22px;
+		}
+
+		label {
+			font-size: 18px;
+			line-height: 1.43;
+
+			&.error {
+				font-size: 18px;
+				line-height: 1.43;
+			}
+
+		}
+
+
+		&--radio {
+
+			label {
+				display: block;
+				margin-right: 0;
+				margin-bottom: 15px;
+			}
+
+			img {
+				width: 215px;
+			}
+
+		}
+
+	}
+	.form-actions {
+		text-align: center;
+	}
+
+	// Section wrapper
+	.sect-wrapper {
+		flex-direction: column;
+	}
+
 
 	// ==================================================
-	//    ### Header ###
+	//    ### MAIN HEADER ###
 	// ==================================================
 	.main-header {
 		min-height: 70px;
@@ -121,152 +205,170 @@
 
 	}
 
-
 	// ==================================================
-	//    ### 1. Front page ###
+	//    ### 1. Section "Main" ###
 	// ==================================================
-	.main-front {
-		padding: 50px 0;
-	}
-
 	.sect-front {
 
-		&__wrapper {
-			flex-direction: column;
-		}
-
-	}
-
-	.front-content {
-		max-width: 100%;
-		margin-bottom: 50px;
-		text-align: center;
-
-		&__title {
-			margin-bottom: 15px;
-			font-size: 24px;
-			line-height: 1.43;
-		}
-
-		&__descr {
+		.front-content {
 			max-width: 100%;
-			margin-bottom: 30px;
+			margin-bottom: 50px;
+			text-align: center;
 
-			p {
-				font-size: 16px;
+			&__title {
+				margin-bottom: 15px;
+				font-size: 24px;
 				line-height: 1.43;
 			}
 
-			small {
-				font-size: 12px;
+			&__descr {
+				max-width: 100%;
+				margin-bottom: 30px;
+
+				p {
+					font-size: 16px;
+					line-height: 1.43;
+				}
+
+				small {
+					font-size: 12px;
+				}
+
 			}
 
-		}
+			&__download {
+				flex-direction: column;
+				margin: 0 auto 30px;
 
-		&__download {
-			flex-direction: column;
-			margin: 0 auto 30px;
+				a {
+					max-width: 150px;
 
-			a {
-				max-width: 150px;
+					&:first-child {
+						margin-right: 0;
+					}
 
-				&:first-child {
-					margin-right: 0;
 				}
 
 			}
 
 		}
 
-	}
-
-	.front-image {
-		max-width: 260px;
-	}
-
-
-	// ==================================================
-	//    ### 3. "Get your plan" page ###
-	// ==================================================
-	.main-plan {
-		padding: 40px 0 97px;
-	}
-
-	.sect-plan {
-		max-width: 90%;
-
-		&__wrapper {
-			display: block;
+		.front-image {
+			max-width: 260px;
 		}
 
 	}
 
-	.plan-content {
-		max-width: 100%;
-		margin-bottom: 100px;
 
-		&__descr {
-			margin-bottom: 50px;
+	// ==================================================
+	//    ### 2. Section "Preview" ###
+	// ==================================================
+	.sect-preview {
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+
+		.preview-box {
 			text-align: center;
 
-			h2 {
-				font-size: 28px;
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4) {
+				flex: 1 290px;
 			}
 
-			small {
-				font-size: 18px;
+			&.is-active {
+				transform: none;
+			}
+
+			&__link {
+				display: none;
 			}
 
 		}
 
 	}
 
-	.plan-image {
+
+	// ==================================================
+	//    ### 3. Section "Plan" ###
+	// ==================================================
+	.sect-plan {
+		max-width: 90%;
 		margin: 0 auto;
+
+		.plan-content {
+			max-width: 100%;
+			margin-bottom: 100px;
+
+			&__descr {
+				margin-bottom: 50px;
+				text-align: center;
+
+				h2 {
+					font-size: 28px;
+				}
+
+				small {
+					font-size: 18px;
+				}
+
+			}
+
+		}
+
+		.plan-image {
+			margin: 0 auto;
+		}
+
 	}
 
 
 	// ==================================================
-	//    ### Forms ###
+	//    ### 4. Section "Plan" ###
 	// ==================================================
-	.form-group {
-		margin-bottom: 40px;
+	.sect-contacts {
 
-		p {
-			margin: 0 0 20px;
-			font-size: 24px;
-			line-height: 1.43;
-			letter-spacing: .68px;
-		}
+		&__head {
+			padding: 12px 0;
 
-		input[type="text"],
-		input[type="email"] {
-			padding: 12px 20px;
-			font-size: 22px;
-		}
-
-		label {
-			font-size: 18px;
-			line-height: 1.43;
-
-			&.error {
+			p {
 				font-size: 18px;
-				line-height: 1.43;
 			}
 
 		}
 
+		.contacts-box {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
 
-		&--radio {
-
-			label {
-				display: block;
-				margin-right: 0;
-				margin-bottom: 15px;
+			&__icon {
+				max-width: 45px;
+				margin: 0;
 			}
 
-			img {
-				width: 215px;
+			&__content {
+
+				h3 {
+					font-size: 26px;
+				}
+
+				p {
+					font-size: 18px;
+				}
+
+			}
+
+		}
+
+		.contacts-form {
+			padding: 0;
+
+			form {
+				padding: 20px 10px;
 			}
 
 		}
@@ -276,124 +378,52 @@
 }
 
 
-
 // ==================================================
-//    ### Tablet ###
+//    ### TABLETS ###
 // ==================================================
 @media screen and (min-width: $min-tablet) and (max-width: $max-tablet) {
 
 	// ==================================================
-	//    ### Common styles ###
+	//    ### COMMON STYLES ###
 	// ==================================================
 	body {
 		margin-top: 90px;
 	}
 
+	// Buttons
 	.btn {
 		padding: 13px 20px;
 		font-size: 18px;
 		line-height: 1.43;
 	}
+	.next-section-btn {
+		bottom: 30px;
+		width: 65px;
+		height: 65px;
+		margin-left: -32.5px;
 
+		.angle-icon {
+			width: 25px;
+			height: 15px;
+			margin-top: -5px;
+			margin-left: -13px;
 
-	// ==================================================
-	//    ### Header ###
-	// ==================================================
-	.main-header {
-
-		.header-nav__link {
-			font-size: 20px;
-			text-transform: uppercase;
-		}
-
-	}
-
-
-	// ==================================================
-	//    ### 1. Front page ###
-	// ==================================================
-	.main-front {
-		padding: 80px 0;
-	}
-
-	.sect-front {
-		max-width: 85%;
-	}
-
-	.front-content {
-		max-width: 50%;
-
-		&__title {
-			margin-bottom: 15px;
-			font-size: 30px;
-			line-height: 1.43;
-		}
-
-		&__descr {
-			max-width: 90%;
-			margin-bottom: 30px;
-			line-height: 1.43;
-
-			p {
-				font-size: 18px;
-			}
-
-			small {
-				font-size: 15px;
-			}
-
-		}
-
-		&__download a {
-			max-width: 150px;
-
-			&:first-child {
-				margin-right: 15px;
+			&--up {
+				margin-top: -7px;
+				margin-left: -12px;
 			}
 
 		}
 
 	}
 
-	.front-image {
-		max-width: 250px;
-	}
-
-
-	// ==================================================
-	//    ### 3. "Get your plan" page ###
-	// ==================================================
-	.main-plan {
-		padding: 50px 0;
-	}
-
-	.sect-plan {
-		max-width: 90%;
-	}
-
-	.plan-content {
-
-		&__descr {
-			margin-bottom: 30px;
-
-			h2 {
-				font-size: 30px;
-			}
-
-		}
-
-	}
-
-	.plan-image {
-		max-width: 250px;
-	}
-
-
-	// ==================================================
-	//    ### Forms ###
-	// ==================================================
+	// Forms
 	.form-group {
 		margin-bottom: 45px;
+
+		&--inline {
+			max-width: 48%;
+		}
 
 		p {
 			margin: 0 0 15px;
@@ -401,9 +431,14 @@
 		}
 
 		input[type="text"],
-		input[type="email"] {
+		input[type="email"],
+		textarea {
 			padding: 12px 20px;
 			font-size: 24px;
+		}
+
+		textarea {
+			height: 300px;
 		}
 
 		label {
@@ -432,115 +467,196 @@
 
 	}
 
+
+	// ==================================================
+	//    ### MAIN HEADER ###
+	// ==================================================
+	.main-header {
+
+		.header-nav__link {
+			font-size: 20px;
+			text-transform: uppercase;
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 1. Section "Main" ###
+	// ==================================================
+	.sect-front {
+		//max-width: 85%;
+
+		.front-content {
+			max-width: 50%;
+
+			&__title {
+				margin-bottom: 15px;
+				font-size: 30px;
+				line-height: 1.43;
+			}
+
+			&__descr {
+				max-width: 90%;
+				margin-bottom: 30px;
+				line-height: 1.43;
+
+				p {
+					font-size: 18px;
+				}
+
+				small {
+					font-size: 15px;
+				}
+
+			}
+
+			&__download a {
+				max-width: 150px;
+
+				&:first-child {
+					margin-right: 15px;
+				}
+
+			}
+
+		}
+
+		.front-image {
+			max-width: 250px;
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 2. Section "Preview" ###
+	// ==================================================
+	.sect-preview {
+		flex-wrap: wrap;
+		align-items: center;
+		max-width: 90%;
+		margin: 0 auto;
+
+		.preview-box {
+			text-align: center;
+
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4) {
+				flex: 1 50%;
+			}
+
+			&.is-active {
+				transform: none;
+			}
+
+			&__link {
+				display: none;
+			}
+
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 3. Section "Plan" ###
+	// ==================================================
+	.sect-plan {
+
+		.plan-content {
+
+			&__descr {
+				margin-bottom: 30px;
+
+				h2 {
+					font-size: 30px;
+				}
+
+			}
+
+		}
+
+		.plan-image {
+			max-width: 250px;
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 4. Section "Contacts" ###
+	// ==================================================
+	.sect-contacts {
+		&__head {
+			padding: 15px 0;
+
+			p {
+				font-size: 20px;
+			}
+
+		}
+
+		.contacts-box {
+			margin-bottom: 25px;
+			padding-bottom: 25px;
+
+			&__icon {
+				max-width: 50px;
+				margin-right: 30px;
+			}
+
+			&__content {
+
+				h3 {
+					font-size: 28px;
+				}
+
+				p {
+					font-size: 18px;
+				}
+
+			}
+
+		}
+
+	}
+
 }
 
 
 // ==================================================
-//    ### Laptop ###
+//    ### LAPTOPS ###
 // ==================================================
+@media screen and (max-width: $max-laptop) {
+
+	// ==================================================
+	//    ### COMMON STYLES ###
+	// ==================================================
+	.sect-wrapper {
+		max-width: 1095px;
+	}
+
+}
+
 @media screen and (min-width: $min-laptop) and (max-width: $max-laptop) {
 
 	// ==================================================
-	//    ### Common styles ###
+	//    ### COMMON STYLES ###
 	// ==================================================
 	body {
 		margin-top: 70px;
 	}
 
-	// ==================================================
-	//    ### Header ###
-	// ==================================================
-	.main-header {
-		min-height: 70px;
-
-		&__wrapper {
-			max-width: 1305px;
-		}
-
-		.header-logo {
-			max-width: 164px;
-		}
-
-		.header-nav {
-
-			&__link {
-				padding: 21px 35px 20px;
-				font-size: 22px;
-				line-height: 29px;
-				letter-spacing: 0.57px;
-			}
-
-		}
-
-	}
-
-
-	// ==================================================
-	//    ### 1. Front page ###
-	// ==================================================
-	.main-front {
-		min-height: calc(100vh - 70px);
-		padding: 103px 0 90px;
-	}
-
-	.sect-front {
-		max-width: 1095px;
-	}
-
-	.front-content {
-		max-width: 50%;
-
-		&__descr {
-			max-width: 90%;
-			margin-bottom: 34px;
-		}
-
-		&__download {
-			margin-bottom: 54px;
-		}
-
-	}
-
-	.front-image {
-		max-width: 250px;
-	}
-
-
-	// ==================================================
-	//    ### 3. "Get your plan" page ###
-	// ==================================================
-	.main-plan {
-		padding: 58px 0 39px;
-	}
-
-	.sect-plan {
-		max-width: 1095px;
-	}
-
-	.plan-content {
-		max-width: 65%;
-
-		&__descr {
-			margin-bottom: 30px;
-
-			h2 {
-				font-size: 30px;
-			}
-
-		}
-
-	}
-
-	.plan-image {
-		max-width: 250px;
-	}
-
-
-	// ==================================================
-	//    ### Forms ###
-	// ==================================================
+	// Forms
 	.form-group {
 		margin-bottom: 40px;
+
+		&--inline {
+			max-width: 48.6%;
+		}
 
 		p {
 			margin: 0 0 19px;
@@ -581,12 +697,117 @@
 
 	}
 
+	// Buttons
+	.next-section-btn {
+		bottom: 10px;
+
+		.angle-icon {
+			width: 35px;
+			height: 20px;
+			margin-top: -5px;
+			margin-left: -17px;
+
+			&--up {
+				margin-top: -9px;
+			}
+
+		}
+
+	}
+
+	// ==================================================
+	//    ### MAIN HEADER ###
+	// ==================================================
+	.main-header {
+		min-height: 70px;
+
+		.header-wrapper {
+			max-width: 1305px;
+		}
+
+		.header-logo {
+			max-width: 164px;
+		}
+
+		.header-nav {
+
+			&__link {
+				padding: 21px 35px 20px;
+				font-size: 22px;
+				line-height: 29px;
+				letter-spacing: 0.57px;
+			}
+
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 1. Section "Main" ###
+	// ==================================================
+	.sect-front {
+
+		.front-content {
+			max-width: 50%;
+
+			&__descr {
+				max-width: 90%;
+				margin-bottom: 34px;
+			}
+
+			&__download {
+				margin-bottom: 54px;
+			}
+
+		}
+
+		.front-image {
+			max-width: 250px;
+		}
+
+	}
+
+
+	// ==================================================
+	//    ### 2. Section "Preview" ###
+	// ==================================================
+	.sect-preview .preview-box__link {
+		bottom: 15px;
+		font-size: 16px;
+	}
+
+	// ==================================================
+	//    ### 3. Section "Plan" ###
+	// ==================================================
+	.sect-plan {
+
+		.plan-content {
+			max-width: 65%;
+
+			&__descr {
+				margin-bottom: 30px;
+
+				h2 {
+					font-size: 30px;
+				}
+
+			}
+
+		}
+
+		.plan-image {
+			max-width: 250px;
+		}
+
+	}
+
 }
 
 @media screen and (min-width: $min-laptop) {
 
 	// ==================================================
-	//    ### Header ###
+	//    ### MAIN HEADER ###
 	// ==================================================
 	.main-header {
 

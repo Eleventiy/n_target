@@ -9,28 +9,8 @@
 		<meta name="description" content="">
 		<title>NTarget - Front page</title>
 
-		<!-- Web Application Manifest -->
-		<link rel="manifest" href="#">
-
 		<!-- Tile icon -->
-		<link rel="shortcut icon" href="#" sizes="31x31" type="image/png">
-
-		<!-- Add to homescreen for Chrome on Android -->
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="application-name" content="NTarget">
-		<!--<link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">-->
-
-		<!-- Add to homescreen for Safari on iOS -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="#0093e5">
-		<meta name="apple-mobile-web-app-title" content="NTarget">
-		<!--<link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">-->
-
-		<!-- Add to homescreen for Windows -->
-		<meta name="msapplication-TileColor" content="#0093e5">
-
-		<!-- Color the status bar on mobile devices -->
-		<meta name="theme-color" content="#0093e5">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
 		<!-- Normalize.css -->
 		<link rel="stylesheet" href="css/normalize.css">
@@ -44,7 +24,7 @@
 		<!-- Main header -->
 		<header class="main-header">
 
-			<div class="main-header__wrapper">
+			<div class="header-wrapper">
 
 				<div class="header-logo">
 					<a href="index.html"><img src="img/logo.svg" alt="NTarget logo"></a>
@@ -61,10 +41,10 @@
 					<!--/. Mobile line -->
 
 					<ul class="header-nav__list">
-						<li class="header-nav__item active"><a href="index.html" class="header-nav__link">Home</a></li>
-						<li class="header-nav__item"><a href="preview.html" class="header-nav__link">Preview</a></li>
-						<li class="header-nav__item"><a href="plan.html" class="header-nav__link">Get Your Plan</a></li>
-						<li class="header-nav__item"><a href="contacts.html" class="header-nav__link">Contact & More</a></li>
+						<li class="header-nav__item"><a rel="m_PageScroll2id" href="#home" class="header-nav__link">Home</a></li>
+						<li class="header-nav__item"><a rel="m_PageScroll2id" href="#preview" class="header-nav__link">Preview</a></li>
+						<li class="header-nav__item"><a rel="m_PageScroll2id" href="#plan" class="header-nav__link">Get Your Plan</a></li>
+						<li class="header-nav__item"><a rel="m_PageScroll2id" href="#contacts" class="header-nav__link">Contact & More</a></li>
 					</ul>
 				</nav>
 
@@ -84,11 +64,12 @@
 		<!--/. Main header -->
 
 		<!-- Main content -->
-		<main class="main-front">
+		<main class="main-content">
 
-			<section class="sect-front">
+			<!-- Section "Main" -->
+			<section class="sect-front" id="home">
 
-				<div class="sect-front__wrapper">
+				<div class="sect-wrapper">
 
 					<div class="front-content">
 						<h1 class="front-content__title">Download Your FREE Workout Plan Now!</h1>
@@ -103,7 +84,7 @@
 							<a href="#"><img src="img/icons/app-store.png" alt="App Store icon"></a>
 						</div>
 
-						<a class="btn" href="#">GET YOUR PLAN NOW</a>
+						<a rel="m_PageScroll2id" class="btn" href="#plan">GET YOUR PLAN NOW</a>
 
 					</div>
 
@@ -115,7 +96,254 @@
 
 				</div>
 
+				<!-- Next section button -->
+				<a rel="m_PageScroll2id" class="next-section-btn" href="#preview">
+					<span class="angle-icon  angle-icon--down"></span>
+					Next section
+				</a>
+				<!--/. Next section button -->
+
 			</section>
+			<!--/. Section "Main" -->
+
+			<!-- Section "Preview" -->
+			<section class="sect-preview" id="preview">
+
+				<!-- Preview box #1 -->
+				<div class="preview-box">
+					<img src="img/slider/1.jpg" alt="Slide 1">
+				</div>
+				<!--/. Preview box #1 -->
+
+				<!-- Preview box #2 -->
+				<div class="preview-box">
+					<img src="img/slider/2.jpg" alt="Slide 2">
+				</div>
+				<!--/. Preview box #2 -->
+
+				<!-- Preview box #3 -->
+				<div class="preview-box">
+					<img src="img/slider/3.jpg" alt="Slide 3">
+
+					<a class="preview-box__link  preview-box__link--right" id="nextPreviewSlide" href="#">Shedules > </a>
+				</div>
+				<!--/. Preview box #3 -->
+
+				<!-- Preview box #4 -->
+				<div class="preview-box is-active">
+					<img src="img/slider/4.jpg" alt="Slide 4">
+
+					<a class="preview-box__link  preview-box__link--left" id="prevPreviewSlide" href="#">< Shedules</a>
+				</div>
+				<!--/. Preview box #4 -->
+
+				<!-- Next section button -->
+				<a rel="m_PageScroll2id" class="next-section-btn" href="#plan">
+					<span class="angle-icon  angle-icon--down"></span>
+					Next section
+				</a>
+				<!--/. Next section button -->
+
+			</section>
+			<!--/. Section "Preview" -->
+
+			<!-- Section "Plan" -->
+			<section class="sect-plan" id="plan">
+
+				<div class="sect-wrapper">
+
+					<div class="plan-content">
+
+						<div class="plan-content__descr">
+							<h2>To get your free plan all we ask is that we can email you when the <span>onTARGET App</span>
+									launches <sup>*</sup>
+							</h2>
+							<small> <sup>*</sup> trust us, we think you’ll like it</small>
+						</div>
+
+						<div class="plan-content__form">
+
+							<form class="form-plan" id="formPlan" action="#" method="post">
+
+								<div class="form-group">
+
+									<p>Where should we send your plan?</p>
+									<input type="email" name="p-user-email" placeholder="Your Email" required>
+
+								</div>
+
+								<div class="form-group  form-group--checkbox">
+
+									<label>
+										<input type="checkbox" name="user-accept" value="accepted contact" required>
+										<span>onTARGET may contact me occassionally once the app is available for download.</span>
+									</label>
+
+								</div>
+
+								<div class="form-group  form-group--radio">
+
+									<p>Which smartphone do you use?</p>
+
+									<label>
+										<input type="radio" name="market" value="app-store">
+										<img src="img/icons/app-store__short.png" alt="App Store icon">
+									</label>
+
+									<label>
+										<input type="radio" name="market" value="google-play">
+										<img src="img/icons/google-play__short.png" alt="Google play icon">
+									</label>
+
+								</div>
+
+								<div class="form-actions">
+									<button class="btn" value="send">SEND ME MY PLAN ALREADY</button>
+								</div>
+
+							</form>
+
+						</div>
+
+					</div>
+
+					<div class="plan-image">
+
+						<img src="img/phones/1.png" alt="NTarget App screen">
+
+					</div>
+
+				</div>
+
+				<!-- Next section button -->
+				<a rel="m_PageScroll2id" class="next-section-btn" href="#contacts">
+					<span class="angle-icon  angle-icon--down"></span>
+					Next section
+				</a>
+				<!--/. Next section button -->
+
+			</section>
+			<!-- Section "Plan" -->
+
+			<!-- Section "Contacts" -->
+			<section class="sect-contacts" id="contacts">
+
+				<!-- Section head -->
+				<div class="sect-contacts__head">
+
+					<div class="sect-wrapper">
+
+						<p>Follow, Support, FAQs, & Contact</p>
+
+					</div>
+
+				</div>
+				<!--/. Section head -->
+
+				<!-- Section content -->
+				<div class="sect-wrapper">
+
+					<!-- Contacts box #1 -->
+					<a class="box-link" href="#">
+						<div class="contacts-box">
+
+							<!-- Icon -->
+							<div class="contacts-box__icon">
+								<img src="img/icons/insta.png" alt="Instagram icon">
+							</div>
+							<!--/. Icon -->
+
+							<!-- Content -->
+							<div class="contacts-box__content">
+								<h3>Follow Us</h3>
+								<p>Check out lorem ispum sit amet on Instagram sit amet dolor</p>
+							</div>
+							<!--/. Content -->
+
+						</div>
+					</a>
+					<!--/. Contacts box #1 -->
+
+					<!-- Contacts box #2 -->
+					<a class="box-link" href="#">
+						<div class="contacts-box">
+
+							<!-- Icon -->
+							<div class="contacts-box__icon">
+								<img src="img/icons/support.png" alt="Support icon">
+							</div>
+							<!--/. Icon -->
+
+							<!-- Content -->
+							<div class="contacts-box__content">
+								<h3>Show Your Support</h3>
+								<p>Check out GetMeOnTarget on Patreon sit amet dolor</p>
+							</div>
+							<!--/. Content -->
+
+						</div>
+					</a>
+					<!--/. Contacts box #2 -->
+
+					<!-- Contacts box #3 -->
+					<a class="box-link" id="contactFormLink" href="#">
+						<div class="contacts-box  contacts-box--last">
+
+							<!-- Icon -->
+							<div class="contacts-box__icon">
+								<img src="img/icons/contact.png" alt="Contact icon">
+							</div>
+							<!--/. Icon -->
+
+							<!-- Content -->
+							<div class="contacts-box__content">
+								<h3>Contact Us</h3>
+								<p>Got a question or text and some lorem ipsum?  Send us a message and we’ll get back to you as soon as possible.</p>
+							</div>
+							<!--/. Content -->
+
+						</div>
+					</a>
+					<!--/. Contacts box #3 -->
+
+					<!-- Contacts form -->
+					<div class="contacts-form" id="contactForm">
+
+						<form id="formContact" action="#" method="post">
+
+							<div class="form-group  form-group--inline">
+								<input type="text" name="c-user-name" placeholder="Your Name" required>
+							</div>
+
+							<div class="form-group  form-group--inline">
+								<input type="email" name="c-user-email" placeholder="Your Email" required>
+							</div>
+
+							<div class="form-group  form-group--textarea">
+								<textarea name="c-user-message" placeholder="Your Message" required></textarea>
+							</div>
+
+							<div class="form-actions">
+								<button class="btn" value="send">SEND MESSAGE</button>
+							</div>
+
+						</form>
+
+					</div>
+					<!--/. Contacts form -->
+
+				</div>
+				<!--/. Section content -->
+
+				<!-- Home section button -->
+				<a rel="m_PageScroll2id" class="next-section-btn" href="#home">
+					<span class="angle-icon  angle-icon--up"></span>
+					Next section
+				</a>
+				<!--/. Home section button -->
+
+			</section>
+			<!--/. Section "Contacts" -->
 
 		</main>
 		<!-- Main content -->
@@ -123,6 +351,12 @@
 
 		<!-- JQuery -->
 		<script src="js/jquery.min.js"></script>
+
+		<!-- JQuery Validation -->
+		<script src="js/jquery.validate.min.js"></script>
+
+		<!-- PageScroll2ID -->
+		<script src="js/jquery.malihu.PageScroll2id.min.js"></script>
 
 		<!-- JavaScript -->
 		<script src="js/common.js"></script>

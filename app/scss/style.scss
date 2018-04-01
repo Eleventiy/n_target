@@ -1,36 +1,47 @@
-// Mixins
+// ==================================================
+//    ### MIXINS ###
+// ==================================================
 @import "mixins/font-face";
 
-// Vars
+
+// ==================================================
+//    ### VARIABLES ###
+// ==================================================
 @import "vars/fonts";
 @import "vars/colors";
 
+
 // ==================================================
-//    ### Font face ###
+//    ### FONT FACE ###
 // ==================================================
 @include font-face("Exo-Regular", "../fonts/exo-regular-webfont", 400, normal);
 @include font-face("Exo-Medium", "../fonts/exo-medium-webfont", 500, normal);
 @include font-face("Exo-DemiBold", "../fonts/exo-demibold-webfont", 600, normal);
 
 
+// ==================================================
+//    ### COMMON STYLES ###
+// ==================================================
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
 	transition: all .25s linear;
+	//outline: 1px solid red;
 }
 
-html {
+html,
+body {
 	height: 100%;
 }
 
 body {
 	position: relative;
-	//min-height: 100%;
+	//overflow: hidden;
 	margin-top: 80px;
 	font-family: $Exo-Medium;
 	font-size: 24px;
-	line-height: 32px;
+	line-height: 1.35;
 	background-color: $mainBg;
 
 	&.overlayed {
@@ -59,6 +70,26 @@ p:last-child {
 	margin: 0;
 }
 
+section {
+	position: relative;
+	z-index: 1;
+	//height: calc(100vh - 50px);
+	padding: 100px 0;
+}
+
+// Section wrapper
+.sect-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1515px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 // Buttons
 .btn {
 	display: inline-block;
@@ -81,9 +112,201 @@ p:last-child {
 	}
 
 }
+@keyframes bounce-down {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes bounce-up {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+.next-section-btn {
+	position: absolute;
+	bottom: 65px;
+	left: 50%;
+	z-index: 10;
+	display: block;
+	width: 82px;
+	height: 82px;
+	margin-left: calc(-82px / 2);
+	font-size: 0;
+	border: 3px solid $black;
+	border-radius: 50%;
+	background-color: $orange;
+	box-shadow: 0 2px 4px rgba($black, .5);
+
+	.angle-icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		width: 40px;
+		height: 25px;
+		margin-top: -9px;
+		margin-left: -19px;
+
+		&--down {
+			background: transparent url("../img/icons/angle-down.svg") no-repeat center;
+			background-size: cover;
+		}
+
+		&--up {
+			margin-top: -12.5px;
+			background: transparent url("../img/icons/angle-up.svg") no-repeat center;
+			background-size: cover;
+		}
+
+	}
+
+	&:hover {
+
+		.angle-icon {
+
+			&--down {
+				animation: bounce-down 1.5s infinite linear;
+			}
+
+			&--up {
+				animation: bounce-up 1.5s infinite linear;
+			}
+
+		}
+
+	}
+
+}
+
+// Forms
+.form-group {
+	position: relative;
+	margin-bottom: 60px;
+
+	&:first-child {
+		margin-bottom: 0;
+	}
+
+	&--inline {
+		display: inline-block;
+		max-width: 48.9%;
+	}
+
+	p {
+		margin: 0 0 28px;
+		color: $orange;
+		font-family: $Exo-Demibold;
+		font-size: 28px;
+		line-height: 38px;
+		letter-spacing: 0.73px;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 528px;
+		padding: 15px 20px;
+		color: darken($gray, 33.4%);
+		font-family: $Exo-Regular;
+		font-size: 30px;
+		line-height: 1.43;
+		letter-spacing: 0.37px;
+		border: 2px solid darken($gray, 29%);
+		border-radius: 5px;
+		background-color: $white;
+		box-shadow: 0 3px 8px rgba($black, 0.107762);
+		outline: 0;
+	}
+
+	textarea {
+		max-width: 100%;
+		height: 330px;
+		resize: none;
+	}
+
+	label {
+		color: lighten($gray, 34%);
+		font-family: $Exo-Regular;
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: 0.73px;
+
+		&.error {
+			position: absolute;
+			left: 0;
+			bottom: -30px;
+			color: #fc1717;
+			font-size: 24px;
+			line-height: 30px;
+			letter-spacing: 0;
+		}
+
+	}
+
+	&--checkbox {
+		margin-top: 30px;
+
+		label {
+			display: block;
+			width: 100%;
+			max-width: 628px;
+		}
+
+	}
+
+	&--radio {
+
+		label {
+			display: inline-block;
+			margin-right: 18px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+		}
+
+		img {
+			width: 243px;
+		}
+
+		label > input {
+			visibility: hidden;
+			position: absolute;
+
+			+ img {
+				cursor: pointer;
+				opacity: .6;
+				transition: all .25s linear;
+			}
+
+			&:checked + img {
+				opacity: 1;
+			}
+
+		}
+
+	}
+
+}
+
 
 // ==================================================
-//    ### Header ###
+//    ### MAIN HEADER ###
 // ==================================================
 .main-header {
 	position: fixed;
@@ -95,14 +318,16 @@ p:last-child {
 	background-color: $black;
 	box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 
-	&__wrapper {
+	.header-wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
 		max-width: 1850px;
-		padding: 0 15px;
-		margin: 0 auto;
+		margin-right: auto;
+		margin-left: auto;
+		padding-right: 15px;
+		padding-left: 15px;
 	}
 
 	.header-logo {
@@ -131,14 +356,6 @@ p:last-child {
 
 			}
 
-			&.active {
-
-				.header-nav__link {
-					color: $orange;
-				}
-
-			}
-
 		}
 
 		&__link {
@@ -146,10 +363,11 @@ p:last-child {
 			padding: 24px 37px;
 			color: $grayLight;
 			letter-spacing: 0.63px;
-			transition: all .25s linear;
+			transition: all .25s ease-in-out;
 
 			&:hover,
-			&:focus {
+			&:focus,
+			&.mPS2id-highlight {
 				color: $orange;
 			}
 
@@ -227,14 +445,12 @@ p:last-child {
 
 }
 
+
 // ==================================================
-//    ### 1. Front page ###
+//    ### 1. Section "Main" ###
 // ==================================================
-.main-front {
-	position: relative;
-	min-height: 100vh;
-	padding: 118px 0 160px;
-	background: $mainBg url("../img/backgrounds/front-bg.png") no-repeat center;
+.sect-front {
+	background: $mainBg url("../img/backgrounds/front-bg.png") repeat-y;
 	background-size: cover;
 
 	&::after {
@@ -244,77 +460,281 @@ p:last-child {
 		right: 0;
 		bottom: 0;
 		left: 0;
+		z-index: -1;
 		background-color: rgba(#040300, .85);
 	}
 
+	.front-content {
+		max-width: 45%;
+
+		&__title {
+			margin: 0;
+			color: $white;
+			font-weight: 500;
+			font-size: 44px;
+			line-height: 58px;
+			letter-spacing: 1.15px;
+		}
+
+		&__descr {
+			max-width: 75%;
+			margin-bottom: 54px;
+			line-height: 37px;
+			letter-spacing: 0.94px;
+
+			p {
+				margin: 0;
+				color: $orange;
+				font-family: $Exo-Demibold;
+				font-size: 26px;
+			}
+
+			small {
+				color: $gray;
+				font-family: $Exo-Regular;
+				font-size: 20px;
+			}
+
+		}
+
+		&__download {
+			display: flex;
+			align-items: center;
+			margin-bottom: 41px;
+
+			a {
+				display: block;
+				max-width: 205px;
+				transition: all .25s linear;
+				opacity: .6;
+
+				&:first-child {
+					margin-right: 20px;
+				}
+
+				&:hover,
+				&:focus {
+					opacity: 1;
+				}
+
+			}
+
+		}
+
+	}
+
+	.front-image {
+		max-width: 360px;
+	}
+
 }
 
-.sect-front {
-	position: relative;
-	z-index: 1;
-	width: 100%;
-	max-width: 1240px;
-	margin: 0 auto;
-	padding: 0 15px;
 
-	&__wrapper {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+// ==================================================
+//    ### 2. Section "Preview" ###
+// ==================================================
+.sect-preview {
+	display: flex;
+	overflow: hidden;
+	padding: 0;
+
+	.preview-box {
+		position: relative;
+		transition: all .5s linear;
+
+		&:nth-child(1) {
+			flex: 1 0 31.792%;
+		}
+
+		&:nth-child(2) {
+			flex: 1 0 27.273%;
+		}
+
+		&:nth-child(3),
+		&:nth-child(4) {
+			flex: 1 0 29.638%;
+		}
+
+		&.is-active {
+			position: relative;
+			z-index: 1;
+			transform: translateX(-50%);
+
+			&:nth-child(3) {
+				z-index: -1;
+				order: 4;
+			}
+
+			&:nth-child(4) {
+				z-index: -1;
+				order: 3;
+			}
+
+			.preview-box__link {
+				display: none;
+			}
+
+		}
+
+		&__link {
+			position: absolute;
+			bottom: 20px;
+			color: $grayLight;
+			font-size: 18px;
+
+			&--left {
+				left: 15px;
+			}
+
+			&--right {
+				right: 15px;
+			}
+
+		}
+
 	}
+
 }
 
-.front-content {
-	max-width: 45%;
 
-	&__title {
-		margin: 0;
-		color: $white;
-		font-weight: 500;
-		font-size: 44px;
-		line-height: 58px;
-		letter-spacing: 1.15px;
+// ==================================================
+//    ### 3. Section "Plan" ###
+// ==================================================
+.sect-plan {
+
+	.plan-content {
+		max-width: 56%;
+
+		&__descr {
+			margin-bottom: 14px;
+			color: $white;
+			letter-spacing: 0.94px;
+
+			h2 {
+				margin: 0;
+				font-size: 34px;
+				font-weight: 500;
+			}
+
+			span,
+			sup {
+				color: $orange;
+			}
+
+			small {
+				color: $gray;
+				font-size: 20px;
+			}
+
+		}
+
 	}
 
-	&__descr {
-		max-width: 75%;
-		margin-bottom: 54px;
-		line-height: 37px;
-		letter-spacing: 0.94px;
+	.plan-image {
+		width: 100%;
+		max-width: 360px;
+	}
+
+}
+
+
+// ==================================================
+//    ### 4. Section "Contacts" ###
+// ==================================================
+.sect-contacts {
+	padding: 0 0 100px;
+	background-color: #343434;
+
+	.sect-wrapper {
+		display: block;
+	}
+
+	&__head {
+		margin-bottom: 40px;
+		padding: 18px 0;
+		background-color: #242424;
 
 		p {
-			margin: 0;
-			color: $orange;
-			font-family: $Exo-Demibold;
-			font-size: 26px;
-		}
-
-		small {
-			color: $gray;
-			font-family: $Exo-Regular;
-			font-size: 20px;
+			color: $grayLight;
+			font-weight: 500;
+			font-size: 24px;
+			letter-spacing: 0.62px;
 		}
 
 	}
 
-	&__download {
-		display: flex;
-		align-items: center;
-		margin-bottom: 41px;
+	.box-link {
+		display: block;
+		width: 100%;
+	}
 
-		a {
+	.contacts-box {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid #979797;
+
+		&--last {
+			border: 0;
+		}
+
+		&__icon {
+			max-width: 60px;
+			margin-right: 40px;
+		}
+
+		&__content {
+
+			h3 {
+				color: $white;
+				margin: 0;
+				font-size: 32px;
+				letter-spacing: 0.89px;
+			}
+
+			p {
+				color: $grayLight;
+				font-size: 24px;
+				letter-spacing: 0.75px;
+			}
+
+		}
+
+	}
+
+	.contacts-form {
+		display: none;
+		padding: 0 15px;
+
+		form {
 			display: block;
-			max-width: 205px;
-			transition: all .25s linear;
-			opacity: .6;
+			padding: 30px 20px;
+			border: 1px solid #979797;
+			border-radius: 4px;
+			background-color: #D8D8D8;
+			opacity: .9;
+			mix-blend-mode: normal;
+		}
+
+		.form-group {
+			width: 100%;
+			margin-bottom: 20px;
 
 			&:first-child {
 				margin-right: 20px;
 			}
 
-			&:hover,
-			&:focus {
-				opacity: 1;
+			&--textarea {
+				margin-bottom: 30px;
+			}
+
+			input {
+				max-width: 100%;
+			}
+
+			label.error {
+				position: static;
 			}
 
 		}
@@ -323,193 +743,7 @@ p:last-child {
 
 }
 
-.front-image {
-	max-width: 360px;
-}
-
-
 // ==================================================
-//    ### 2. Preview page ###
-// ==================================================
-.sect-preview {}
-
-.preview-slider {
-	cursor: grab;
-
-	img {
-		outline: 0;
-	}
-
-}
-
-.slick-slider .slick-track {
-	transition: none;
-}
-
-
-// ==================================================
-//    ### 3. "Get your plan" page ###
-// ==================================================
-.main-plan {
-	padding: 100px 0 143px;
-}
-
-.sect-plan {
-	width: 100%;
-	max-width: 1510px;
-	margin: 0 auto;
-	padding: 0 15px;
-
-	&__wrapper {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-}
-
-.plan-content {
-	max-width: 56%;
-
-	&__descr {
-		margin-bottom: 14px;
-		color: $white;
-		letter-spacing: 0.94px;
-
-		h2 {
-			margin: 0;
-			font-size: 34px;
-			font-weight: 500;
-			line-height: 1.43;
-		}
-
-		span,
-		sup {
-			color: $orange;
-		}
-
-		small {
-			color: $gray;
-			font-size: 20px;
-			line-height: 1.43;
-		}
-
-	}
-
-}
-
-.plan-image {
-	width: 100%;
-	max-width: 360px;
-}
-
-
-// ==================================================
-//    ### Forms ###
-// ==================================================
-.form-group {
-	position: relative;
-	margin-bottom: 60px;
-
-	&:first-child {
-		margin-bottom: 0;
-	}
-
-	p {
-		margin: 0 0 28px;
-		color: $orange;
-		font-family: $Exo-Demibold;
-		font-size: 28px;
-		line-height: 38px;
-		letter-spacing: 0.73px;
-	}
-
-	input[type="text"],
-	input[type="email"] {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: 528px;
-		padding: 15px 20px;
-		color: darken($gray, 33.4%);
-		font-family: $Exo-Regular;
-		font-size: 30px;
-		line-height: 1.43;
-		letter-spacing: 0.37px;
-		border: 2px solid darken($gray, 29%);
-		border-radius: 5px;
-		background-color: $white;
-		box-shadow: 0 3px 8px rgba($black, 0.107762);
-		outline: 0;
-	}
-
-	label {
-		color: lighten($gray, 34%);
-		font-family: $Exo-Regular;
-		font-size: 20px;
-		line-height: 30px;
-		letter-spacing: 0.73px;
-
-		&.error {
-			position: absolute;
-			left: 0;
-			bottom: -30px;
-			color: #fc1717;
-			font-size: 24px;
-			line-height: 30px;
-			letter-spacing: 0;
-		}
-
-	}
-
-	&--checkbox {
-		margin-top: 30px;
-
-		label {
-			display: block;
-			width: 100%;
-			max-width: 628px;
-		}
-
-	}
-
-	&--radio {
-
-		label {
-			display: inline-block;
-			margin-right: 18px;
-
-			&:last-child {
-				margin-right: 0;
-			}
-
-		}
-
-		img {
-			width: 243px;
-		}
-
-		label > input {
-			visibility: hidden;
-			position: absolute;
-
-			+ img {
-				cursor: pointer;
-				opacity: .6;
-				transition: all .25s linear;
-			}
-
-			&:checked + img {
-				opacity: 1;
-			}
-
-		}
-
-	}
-
-}
-
-
-// ==================================================
-//    ### Responsive styles ###
+//    ### RESPONSIVE STYLES ###
 // ==================================================
 @import "responsive";
